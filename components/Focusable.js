@@ -9,8 +9,7 @@ const navProps = [
   'onSelect',
   'onMove',
   'grid',
-  'wrapping',
-  'data'
+  'wrapping'
 ]
 
 class Focusable extends PureComponent {
@@ -52,8 +51,7 @@ Focusable.propTypes = {
   className: PropTypes.string,
   children: PropTypes.any,
   element: PropTypes.string,
-  vertical: PropTypes.bool,
-  horizontal: PropTypes.bool
+  orientation: PropTypes.string
 }
 
 Focusable.defaultProps = {

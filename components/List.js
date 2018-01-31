@@ -12,13 +12,15 @@ export default class List extends PureComponent {
 
     return (
       <Focusable
-        element='ul'
+        className={`list list--${orientation}`}
         orientation={orientation}
         wrapping={wrapping}
       >
-        <Focusable element='li'>One</Focusable>
-        <Focusable element='li'>Two</Focusable>
-        <Focusable element='li'>Three</Focusable>
+        <Focusable className='list__item'>1</Focusable>
+        <Focusable className='list__item'>2</Focusable>
+        <Focusable className='list__item'>3</Focusable>
+        <Focusable className='list__item'>4</Focusable>
+        <Focusable className='list__item'>5</Focusable>
       </Focusable>
     )
   }
