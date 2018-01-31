@@ -12,7 +12,7 @@ export default class List extends PureComponent {
 
     return (
       <Focusable
-        className={`list list--${orientation}`}
+        className={`list--${orientation}`}
         orientation={orientation}
         wrapping={wrapping}
       >
