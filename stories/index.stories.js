@@ -21,7 +21,7 @@ const LoL = withFocus(() => (
   </Focusable>
 ))
 
-storiesOf('Lists', module)
+storiesOf('List', module)
   .add('vertical', () => <List orientation='vertical' items={num} />)
   .add('vertical wrapping', () => <List orientation='vertical' wrapping items={num} />)
   .add('horizontal', () => <List orientation='horizontal' items={num} />)
