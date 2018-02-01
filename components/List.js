@@ -1,39 +1,29 @@
-import React, { PureComponent } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import Focusable from './Focusable'
-import navigation from '../common/navigation'
+import withFocus from '../common/with-focus'
 
-class List extends PureComponent {
-  componentDidMount () {
-    navigation.focus()
-  }
-
-  render () {
-    const { data, orientation, wrapping, onFocus, onBlur, onMove } = this.props
-
-    return (
+const List = ({ data, orientation, wrapping, onFocus, onBlur, onMove }) => (
+  <Focusable
+    id={`${orientation}-list`}
+    className={`list--${orientation}`}
+    wrapping={wrapping}
+    orientation={orientation}
+    onMove={onMove}
+  >
+    {Array.from(data).map((char, i) => (
       <Focusable
-        id={`${orientation}-list`}
-        className={`list--${orientation}`}
-        wrapping={wrapping}
-        orientation={orientation}
-        onMove={onMove}
+        key={i}
+        id={`list-item-${char}`}
+        className='list__item'
+        onFocus={onFocus}
+        onBlur={onBlur}
       >
-        {Array.from(data).map((char, i) => (
-          <Focusable
-            key={i}
-            id={`list-item-${char}`}
-            className='list__item'
-            onFocus={onFocus}
-            onBlur={onBlur}
-          >
-            {char}
-          </Focusable>
-        ))}
+        {char}
       </Focusable>
-    )
-  }
-}
+    ))}
+  </Focusable>
+)
 
 List.propTypes = {
   data: PropTypes.oneOfType([
@@ -50,4 +40,4 @@ List.propTypes = {
   onMove: PropTypes.func
 }
 
-export default List
+export default withFocus(List)

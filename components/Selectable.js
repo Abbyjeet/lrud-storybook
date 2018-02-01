@@ -1,27 +1,19 @@
-import React, { PureComponent } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import Focusable from './Focusable'
-import navigation from '../common/navigation'
+import withFocus from '../common/with-focus'
 
-class Selectable extends PureComponent {
-  componentDidMount () {
-    navigation.focus()
-  }
-
-  render () {
-    return (
-      <Focusable
-        className='button'
-        onSelect={this.props.onSelect}
-      >
-        Select Me!
-      </Focusable>
-    )
-  }
-}
+const Selectable = ({ onSelect }) => (
+  <Focusable
+    className='button'
+    onSelect={onSelect}
+  >
+    Select Me!
+  </Focusable>
+)
 
 Selectable.propTypes = {
   onSelect: PropTypes.func
 }
 
-export default Selectable
+export default withFocus(Selectable)

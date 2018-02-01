@@ -1,47 +1,37 @@
-import React, { PureComponent } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import Focusable from './Focusable'
-import navigation from '../common/navigation'
+import withFocus from '../common/with-focus'
 
-class Grid extends PureComponent {
-  componentDidMount () {
-    navigation.focus()
-  }
-
-  render () {
-    const { data, wrapping } = this.props
-
-    return (
+const Grid = ({ data, wrapping }) => (
+  <Focusable
+    grid
+    orientation='vertical'
+    wrapping={wrapping}
+  >
+    {data.map((row, i) => (
       <Focusable
-        grid
-        orientation='vertical'
+        key={i}
+        className='grid__row'
+        orientation='horizontal'
         wrapping={wrapping}
       >
-        {data.map((row, i) => (
+        {row.map((char, i) => (
           <Focusable
             key={i}
-            className='grid__row'
-            orientation='horizontal'
-            wrapping={wrapping}
+            className='grid__item'
           >
-            {row.map((char, i) => (
-              <Focusable
-                key={i}
-                className='grid__item'
-              >
-                {char}
-              </Focusable>
-            ))}
+            {char}
           </Focusable>
         ))}
       </Focusable>
-    )
-  }
-}
+    ))}
+  </Focusable>
+)
 
 Grid.propTypes = {
   data: PropTypes.array.isRequired,
   wrapping: PropTypes.bool
 }
 
-export default Grid
+export default withFocus(Grid)
