@@ -31,7 +31,7 @@ class Focusable extends PureComponent {
   }
 
   render () {
-    const { className, children, element } = this.props
+    const { className, style, children, element } = this.props
     const { parent } = this.context
 
     navigation.register(this.id, Object.assign({ parent }, pick(this.props, navProps)))
@@ -39,6 +39,7 @@ class Focusable extends PureComponent {
     return React.createElement(element, {
       id: this.id,
       className,
+      style,
       children
     })
   }
@@ -47,6 +48,7 @@ class Focusable extends PureComponent {
 Focusable.propTypes = {
   id: PropTypes.string,
   className: PropTypes.string,
+  style: PropTypes.object,
   children: PropTypes.any,
   element: PropTypes.string
 }

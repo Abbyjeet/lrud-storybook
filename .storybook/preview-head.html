@@ -22,6 +22,27 @@
     text-align: center;
   }
 
+  .carousel {
+    white-space: nowrap;
+    transition: transform .2s ease-in-out;
+    -webkit-transition: transform .2s ease-in-out;
+  }
+
+  .carousel__item {
+    height: 2em;
+    line-height: 2em;
+    text-align: center;
+  }
+
+  .carousel--horizontal .carousel__item {
+    width: 2em;
+    display: inline-block;
+  }
+
+  .carousel--vertical .carousel__item {
+    width: 10em;
+  }
+
   .button {
     height: 2em;
     width: 10em;
@@ -36,6 +57,7 @@
 
   .list__item.focused,
   .grid__item.focused,
+  .carousel__item.focused,
   .button.focused {
     background-color: red !important;
     color: white;

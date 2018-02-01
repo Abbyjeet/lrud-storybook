@@ -16,12 +16,12 @@ const Grid = ({ data, wrapping }) => (
         orientation='horizontal'
         wrapping={wrapping}
       >
-        {row.map((char, i) => (
+        {row.map((item, i) => (
           <Focusable
             key={i}
             className='grid__item'
           >
-            {char}
+            {item}
           </Focusable>
         ))}
       </Focusable>
