@@ -5,7 +5,6 @@ import withFocus from '../common/with-focus'
 
 const List = ({ data, orientation, wrapping, onFocus, onBlur, onMove }) => (
   <Focusable
-    id={`${orientation}-list`}
     className={`list--${orientation}`}
     wrapping={wrapping}
     orientation={orientation}
@@ -14,7 +13,6 @@ const List = ({ data, orientation, wrapping, onFocus, onBlur, onMove }) => (
     {Array.from(data).map((char, i) => (
       <Focusable
         key={i}
-        id={`list-item-${char}`}
         className='list__item'
         onFocus={onFocus}
         onBlur={onBlur}

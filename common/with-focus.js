@@ -1,14 +1,13 @@
 import React, { PureComponent } from 'react'
 import navigation from './navigation'
 
-export default (Component) => {
-  return class Focus extends PureComponent {
-    componentDidMount () {
-      navigation.focus()
-    }
+// Force focus when switing between stories
+export default (Component) => class Focus extends PureComponent {
+  componentDidMount () {
+    navigation.focus()
+  }
 
-    render () {
-      return <Component {...this.props} />
-    }
+  render () {
+    return <Component {...this.props} />
   }
 }

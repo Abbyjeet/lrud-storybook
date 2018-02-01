@@ -19,6 +19,16 @@ navigation.on('blur', (id) => {
   if (node && node.onBlur) node.onBlur(node)
 })
 
+navigation.on('active', (id) => {
+  const el = $id(id)
+  if (el) el.classList.add('active')
+})
+
+navigation.on('inactive', (id) => {
+  const el = $id(id)
+  if (el) el.classList.remove('active')
+})
+
 navigation.on('select', (id) => {
   const node = navigation.nodes[id]
   if (node && node.onSelect) node.onSelect(node)
