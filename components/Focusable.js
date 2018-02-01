@@ -9,7 +9,8 @@ const navProps = [
   'onSelect',
   'onMove',
   'grid',
-  'wrapping'
+  'wrapping',
+  'orientation'
 ]
 
 class Focusable extends PureComponent {
@@ -30,13 +31,10 @@ class Focusable extends PureComponent {
   }
 
   render () {
-    const { className, children, element, orientation } = this.props
+    const { className, children, element } = this.props
     const { parent } = this.context
 
-    navigation.register(this.id, Object.assign({
-      parent,
-      orientation
-    }, pick(this.props, navProps)))
+    navigation.register(this.id, Object.assign({ parent }, pick(this.props, navProps)))
 
     return React.createElement(element, {
       id: this.id,
@@ -50,8 +48,7 @@ Focusable.propTypes = {
   id: PropTypes.string,
   className: PropTypes.string,
   children: PropTypes.any,
-  element: PropTypes.string,
-  orientation: PropTypes.string
+  element: PropTypes.string
 }
 
 Focusable.defaultProps = {

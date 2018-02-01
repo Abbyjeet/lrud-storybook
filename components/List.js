@@ -1,27 +1,46 @@
 import React, { PureComponent } from 'react'
+import PropTypes from 'prop-types'
 import Focusable from './Focusable'
 import navigation from '../common/navigation'
 
-export default class List extends PureComponent {
+class List extends PureComponent {
   componentDidMount () {
     navigation.focus()
   }
 
   render () {
-    const { orientation, wrapping } = this.props
+    const { data, orientation, wrapping, onFocus, onBlur, onMove } = this.props
 
     return (
       <Focusable
+        id={`${orientation}-list`}
         className={`list--${orientation}`}
-        orientation={orientation}
         wrapping={wrapping}
+        orientation={orientation}
+        onMove={onMove}
       >
-        <Focusable className='list__item'>1</Focusable>
-        <Focusable className='list__item'>2</Focusable>
-        <Focusable className='list__item'>3</Focusable>
-        <Focusable className='list__item'>4</Focusable>
-        <Focusable className='list__item'>5</Focusable>
+        {Array.from(data).map((char) => (
+          <Focusable
+            id={`list-item-${char}`}
+            className='list__item'
+            onFocus={onFocus}
+            onBlur={onBlur}
+          >
+            {char}
+          </Focusable>
+        ))}
       </Focusable>
     )
   }
 }
+
+List.propTypes = {
+  data: PropTypes.array.isRequired,
+  orientation: PropTypes.oneOf([ 'vertical', 'horizontal' ]).isRequired,
+  wrapping: PropTypes.bool,
+  onFocus: PropTypes.func,
+  onBlur: PropTypes.func,
+  onMove: PropTypes.func
+}
+
+export default List

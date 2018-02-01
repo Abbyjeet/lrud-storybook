@@ -22,7 +22,7 @@ export default class Grid extends PureComponent {
             orientation='horizontal'
             wrapping={wrapping}
           >
-            {Array.from(row).map((char) => (
+            {row.map((char) => (
               <Focusable className='grid__item'>
                 {char}
               </Focusable>
