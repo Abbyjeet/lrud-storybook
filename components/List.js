@@ -19,8 +19,9 @@ class List extends PureComponent {
         orientation={orientation}
         onMove={onMove}
       >
-        {Array.from(data).map((char) => (
+        {Array.from(data).map((char, i) => (
           <Focusable
+            key={i}
             id={`list-item-${char}`}
             className='list__item'
             onFocus={onFocus}
@@ -35,8 +36,14 @@ class List extends PureComponent {
 }
 
 List.propTypes = {
-  data: PropTypes.array.isRequired,
-  orientation: PropTypes.oneOf([ 'vertical', 'horizontal' ]).isRequired,
+  data: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.array
+  ]).isRequired,
+  orientation: PropTypes.oneOf([
+    'vertical',
+    'horizontal'
+  ]).isRequired,
   wrapping: PropTypes.bool,
   onFocus: PropTypes.func,
   onBlur: PropTypes.func,

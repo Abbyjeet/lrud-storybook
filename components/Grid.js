@@ -1,8 +1,9 @@
 import React, { PureComponent } from 'react'
+import PropTypes from 'prop-types'
 import Focusable from './Focusable'
 import navigation from '../common/navigation'
 
-export default class Grid extends PureComponent {
+class Grid extends PureComponent {
   componentDidMount () {
     navigation.focus()
   }
@@ -16,14 +17,18 @@ export default class Grid extends PureComponent {
         orientation='vertical'
         wrapping={wrapping}
       >
-        {data.map((row) => (
+        {data.map((row, i) => (
           <Focusable
+            key={i}
             className='grid__row'
             orientation='horizontal'
             wrapping={wrapping}
           >
-            {row.map((char) => (
-              <Focusable className='grid__item'>
+            {row.map((char, i) => (
+              <Focusable
+                key={i}
+                className='grid__item'
+              >
                 {char}
               </Focusable>
             ))}
@@ -33,3 +38,10 @@ export default class Grid extends PureComponent {
     )
   }
 }
+
+Grid.propTypes = {
+  data: PropTypes.array.isRequired,
+  wrapping: PropTypes.bool
+}
+
+export default Grid

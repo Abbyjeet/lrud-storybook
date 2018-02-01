@@ -1,8 +1,9 @@
 import React, { PureComponent } from 'react'
+import PropTypes from 'prop-types'
 import Focusable from './Focusable'
 import navigation from '../common/navigation'
 
-export default class Selectable extends PureComponent {
+class Selectable extends PureComponent {
   componentDidMount () {
     navigation.focus()
   }
@@ -18,3 +19,9 @@ export default class Selectable extends PureComponent {
     )
   }
 }
+
+Selectable.propTypes = {
+  onSelect: PropTypes.func
+}
+
+export default Selectable
