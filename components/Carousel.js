@@ -1,9 +1,7 @@
 import React, { PureComponent } from 'react'
-import PropTypes from 'prop-types'
 import Focusable from './Focusable'
 import withFocus from '../common/with-focus'
-
-const $id = (id) => document.getElementById(id)
+import Types from '../common/types'
 
 class Carousel extends PureComponent {
   constructor () {
@@ -19,7 +17,7 @@ class Carousel extends PureComponent {
   handleMove ({ orientation, offset, enter, leave }) {
     const { position } = this.state
     const target = offset === 1 ? enter : leave
-    const el = $id(target.id)
+    const el = document.getElementById(target.id)
     const moveby = orientation === 'horizontal' ? el.offsetWidth : el.offsetHeight
 
     this.setState({
@@ -58,14 +56,8 @@ class Carousel extends PureComponent {
 }
 
 Carousel.propTypes = {
-  items: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.array
-  ]).isRequired,
-  orientation: PropTypes.oneOf([
-    'vertical',
-    'horizontal'
-  ]).isRequired
+  items: Types.items.isRequired,
+  orientation: Types.orientation.isRequired
 }
 
 export default withFocus(Carousel)

@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import Types from '../common/types'
 import Focusable from './Focusable'
 import withFocus from '../common/with-focus'
 
@@ -24,14 +25,8 @@ const List = ({ items, orientation, wrapping, onFocus, onBlur, onMove }) => (
 )
 
 List.propTypes = {
-  items: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.array
-  ]).isRequired,
-  orientation: PropTypes.oneOf([
-    'vertical',
-    'horizontal'
-  ]).isRequired,
+  items: Types.items.isRequired,
+  orientation: Types.orientation.isRequired,
   wrapping: PropTypes.bool,
   onFocus: PropTypes.func,
   onBlur: PropTypes.func,
