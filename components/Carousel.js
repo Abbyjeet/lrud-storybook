@@ -66,11 +66,11 @@ const styles = {
     transition: 'transform .2s ease-in-out'
   },
   item: {
-    height: '2em',
-    lineHeight: '2em',
+    height: '10em',
+    width: '10em',
+    lineHeight: '10em',
     textAlign: 'center',
-    display: ({ orientation }) => orientation === 'vertical' ? 'block' : 'inline-block',
-    width: ({ orientation }) => orientation === 'vertical' ? '10em' : '2em'
+    display: ({ orientation }) => orientation === 'vertical' ? 'block' : 'inline-block'
   }
 }
 
