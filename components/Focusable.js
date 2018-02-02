@@ -10,7 +10,8 @@ const navProps = [
   'onMove',
   'grid',
   'wrapping',
-  'orientation'
+  'orientation',
+  'data'
 ]
 
 class Focusable extends PureComponent {

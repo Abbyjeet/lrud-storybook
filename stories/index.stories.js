@@ -6,6 +6,7 @@ import Focusable from '../components/Focusable'
 import List from '../components/List'
 import Grid from '../components/Grid'
 import Carousel from '../components/Carousel'
+import Keyboard from '../components/Keyboard'
 import Selectable from '../components/Selectable'
 import withFocus from '../common/with-focus'
 
@@ -15,7 +16,7 @@ const gridData = chunk(Array.from(alpha + num), 6)
 const wonkData = chunk(Array.from(alpha), 6)
 
 const LoL = withFocus(() => (
-  <Focusable orientation='vertical' className='lol'>
+  <Focusable orientation='vertical'>
     <List orientation='horizontal' items={alpha} />
     <List orientation='horizontal' items={num} />
   </Focusable>
@@ -36,6 +37,9 @@ storiesOf('Grid', module)
 storiesOf('Carousel', module)
   .add('horizontal', () => <Carousel orientation='horizontal' items={num} />)
   .add('vertical', () => <Carousel orientation='vertical' items={num} />)
+
+storiesOf('Keyboard', module)
+  .add('search', () => <Keyboard data={gridData} />)
 
 storiesOf('Events', module)
   .add('select', () => <Selectable onSelect={action('select')}>Select Me!</Selectable>)
