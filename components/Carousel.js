@@ -40,10 +40,7 @@ class Carousel extends PureComponent {
         className={classes.carousel}
         orientation={orientation}
         onMove={this.handleMove}
-        style={{
-          transform,
-          WebkitTransform: transform
-        }}
+        style={{ transform }}
       >
         {Array.from(items).map((item, i) => (
           <Focusable
