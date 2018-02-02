@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import classNames from 'classnames'
 import injectSheet from 'react-jss'
 import Types from '../common/types'
 import Focusable from './Focusable'
@@ -15,10 +14,7 @@ const List = ({ classes, items, orientation, wrapping, onFocus, onBlur, onMove }
     {Array.from(items).map((item, i) => (
       <Focusable
         key={i}
-        className={classNames('focusable', 'activeable', classes.item, {
-          [classes.itemHorizontal]: orientation === 'horizontal',
-          [classes.itemVertical]: orientation === 'vertical'
-        })}
+        className={`focusable activeable ${classes.item}`}
         onFocus={onFocus}
         onBlur={onBlur}
       >
@@ -42,14 +38,9 @@ const styles = {
   item: {
     height: '2em',
     lineHeight: '2em',
-    textAlign: 'center'
-  },
-  itemHorizontal: {
-    display: 'inline-block',
-    width: '2em'
-  },
-  itemVertical: {
-    width: '10em'
+    textAlign: 'center',
+    display: ({ orientation }) => orientation === 'vertical' ? 'block' : 'inline-block',
+    width: ({ orientation }) => orientation === 'vertical' ? '10em' : '2em'
   }
 }
 

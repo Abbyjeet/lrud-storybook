@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import classNames from 'classnames'
 import injectSheet from 'react-jss'
 import Focusable from './Focusable'
 import withFocus from '../common/with-focus'
@@ -45,10 +44,7 @@ class Carousel extends PureComponent {
         {Array.from(items).map((item, i) => (
           <Focusable
             key={i}
-            className={classNames('focusable', classes.item, {
-              [classes.itemHorizontal]: orientation === 'horizontal',
-              [classes.itemVertical]: orientation === 'vertical'
-            })}
+            className={`focusable ${classes.item}`}
           >
             {item}
           </Focusable>
@@ -72,14 +68,9 @@ const styles = {
   item: {
     height: '2em',
     lineHeight: '2em',
-    textAlign: 'center'
-  },
-  itemHorizontal: {
-    display: 'inline-block',
-    width: '2em'
-  },
-  itemVertical: {
-    width: '10em'
+    textAlign: 'center',
+    display: ({ orientation }) => orientation === 'vertical' ? 'block' : 'inline-block',
+    width: ({ orientation }) => orientation === 'vertical' ? '10em' : '2em'
   }
 }
 

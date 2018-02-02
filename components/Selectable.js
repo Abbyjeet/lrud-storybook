@@ -1,13 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import classNames from 'classnames'
 import injectSheet from 'react-jss'
 import Focusable from './Focusable'
 import withFocus from '../common/with-focus'
 
 const Selectable = ({ classes, onSelect }) => (
   <Focusable
-    className={classNames('focusable', classes.button)}
+    className={`focusable ${classes.button}`}
     onSelect={onSelect}
   >
     Select Me!

@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import classNames from 'classnames'
 import injectSheet from 'react-jss'
 import Focusable from './Focusable'
 import withFocus from '../common/with-focus'
@@ -20,7 +19,7 @@ const Grid = ({ classes, data, wrapping }) => (
         {row.map((item, i) => (
           <Focusable
             key={i}
-            className={classNames('focusable', classes.item)}
+            className={`focusable ${classes.item}`}
           >
             {item}
           </Focusable>
