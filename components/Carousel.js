@@ -1,4 +1,7 @@
 import React, { PureComponent } from 'react'
+import PropTypes from 'prop-types'
+import classNames from 'classnames'
+import injectSheet from 'react-jss'
 import Focusable from './Focusable'
 import withFocus from '../common/with-focus'
 import Types from '../common/types'
@@ -26,7 +29,7 @@ class Carousel extends PureComponent {
   }
 
   render () {
-    const { items, orientation } = this.props
+    const { classes, items, orientation } = this.props
     const { position } = this.state
     const x = orientation === 'horizontal' ? position : 0
     const y = orientation === 'vertical' ? position : 0
@@ -34,7 +37,7 @@ class Carousel extends PureComponent {
 
     return (
       <Focusable
-        className={`carousel carousel--${orientation}`}
+        className={classes.carousel}
         orientation={orientation}
         onMove={this.handleMove}
         style={{
@@ -45,7 +48,10 @@ class Carousel extends PureComponent {
         {Array.from(items).map((item, i) => (
           <Focusable
             key={i}
-            className='carousel__item'
+            className={classNames('focusable', classes.item, {
+              [classes.itemHorizontal]: orientation === 'horizontal',
+              [classes.itemVertical]: orientation === 'vertical'
+            })}
           >
             {item}
           </Focusable>
@@ -57,7 +63,27 @@ class Carousel extends PureComponent {
 
 Carousel.propTypes = {
   items: Types.items.isRequired,
-  orientation: Types.orientation.isRequired
+  orientation: Types.orientation.isRequired,
+  classes: PropTypes.object.isRequired
 }
 
-export default withFocus(Carousel)
+const styles = {
+  carousel: {
+    whiteSpace: 'nowrap',
+    transition: 'transform .2s ease-in-out'
+  },
+  item: {
+    height: '2em',
+    lineHeight: '2em',
+    textAlign: 'center'
+  },
+  itemHorizontal: {
+    display: 'inline-block',
+    width: '2em'
+  },
+  itemVertical: {
+    width: '10em'
+  }
+}
+
+export default withFocus(injectSheet(styles)(Carousel))

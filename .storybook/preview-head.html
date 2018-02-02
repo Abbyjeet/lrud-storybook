@@ -1,64 +1,14 @@
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 <style type="text/css">
-  .list--vertical {
-    width: 10em;
+  html, body {
+    font-family: 'Roboto', sans-serif;
   }
 
-  .list__item {
-    height: 2em;
-    line-height: 2em;
-    text-align: center;
-  }
-
-  .list--horizontal .list__item {
-    display: inline-block;
-    width: 2em;
-  }
-
-  .grid__item {
-    height: 2em;
-    width: 2em;
-    line-height: 2em;
-    display: inline-block;
-    text-align: center;
-  }
-
-  .carousel {
-    white-space: nowrap;
-    transition: transform .2s ease-in-out;
-    -webkit-transition: transform .2s ease-in-out;
-  }
-
-  .carousel__item {
-    height: 2em;
-    line-height: 2em;
-    text-align: center;
-  }
-
-  .carousel--horizontal .carousel__item {
-    width: 2em;
-    display: inline-block;
-  }
-
-  .carousel--vertical .carousel__item {
-    width: 10em;
-  }
-
-  .button {
-    height: 2em;
-    width: 10em;
-    line-height: 2em;
-    display: inline-block;
-    text-align: center;
-  }
-
-  .lol .list__item.active {
+  .activeable.active {
     background-color: #ccc;
   }
 
-  .list__item.focused,
-  .grid__item.focused,
-  .carousel__item.focused,
-  .button.focused {
+  .focusable.focused {
     background-color: red !important;
     color: white;
   }

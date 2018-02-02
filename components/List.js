@@ -1,12 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import classNames from 'classnames'
+import injectSheet from 'react-jss'
 import Types from '../common/types'
 import Focusable from './Focusable'
 import withFocus from '../common/with-focus'
 
-const List = ({ items, orientation, wrapping, onFocus, onBlur, onMove }) => (
+const List = ({ classes, items, orientation, wrapping, onFocus, onBlur, onMove }) => (
   <Focusable
-    className={`list--${orientation}`}
     wrapping={wrapping}
     orientation={orientation}
     onMove={onMove}
@@ -14,7 +15,10 @@ const List = ({ items, orientation, wrapping, onFocus, onBlur, onMove }) => (
     {Array.from(items).map((item, i) => (
       <Focusable
         key={i}
-        className='list__item'
+        className={classNames('focusable', 'activeable', classes.item, {
+          [classes.itemHorizontal]: orientation === 'horizontal',
+          [classes.itemVertical]: orientation === 'vertical'
+        })}
         onFocus={onFocus}
         onBlur={onBlur}
       >
@@ -30,7 +34,23 @@ List.propTypes = {
   wrapping: PropTypes.bool,
   onFocus: PropTypes.func,
   onBlur: PropTypes.func,
-  onMove: PropTypes.func
+  onMove: PropTypes.func,
+  classes: PropTypes.object.isRequired
 }
 
-export default withFocus(List)
+const styles = {
+  item: {
+    height: '2em',
+    lineHeight: '2em',
+    textAlign: 'center'
+  },
+  itemHorizontal: {
+    display: 'inline-block',
+    width: '2em'
+  },
+  itemVertical: {
+    width: '10em'
+  }
+}
+
+export default withFocus(injectSheet(styles)(List))

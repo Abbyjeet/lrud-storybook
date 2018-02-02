@@ -1,9 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import classNames from 'classnames'
+import injectSheet from 'react-jss'
 import Focusable from './Focusable'
 import withFocus from '../common/with-focus'
 
-const Grid = ({ data, wrapping }) => (
+const Grid = ({ classes, data, wrapping }) => (
   <Focusable
     grid
     orientation='vertical'
@@ -12,14 +14,13 @@ const Grid = ({ data, wrapping }) => (
     {data.map((row, i) => (
       <Focusable
         key={i}
-        className='grid__row'
         orientation='horizontal'
         wrapping={wrapping}
       >
         {row.map((item, i) => (
           <Focusable
             key={i}
-            className='grid__item'
+            className={classNames('focusable', classes.item)}
           >
             {item}
           </Focusable>
@@ -31,7 +32,18 @@ const Grid = ({ data, wrapping }) => (
 
 Grid.propTypes = {
   data: PropTypes.array.isRequired,
-  wrapping: PropTypes.bool
+  wrapping: PropTypes.bool,
+  classes: PropTypes.object.isRequired
 }
 
-export default withFocus(Grid)
+const styles = {
+  item: {
+    height: '2em',
+    width: '2em',
+    lineHeight: '2em',
+    display: 'inline-block',
+    textAlign: 'center'
+  }
+}
+
+export default withFocus(injectSheet(styles)(Grid))

@@ -1,11 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import classNames from 'classnames'
+import injectSheet from 'react-jss'
 import Focusable from './Focusable'
 import withFocus from '../common/with-focus'
 
-const Selectable = ({ onSelect }) => (
+const Selectable = ({ classes, onSelect }) => (
   <Focusable
-    className='button'
+    className={classNames('focusable', classes.button)}
     onSelect={onSelect}
   >
     Select Me!
@@ -13,7 +15,18 @@ const Selectable = ({ onSelect }) => (
 )
 
 Selectable.propTypes = {
-  onSelect: PropTypes.func
+  onSelect: PropTypes.func,
+  classes: PropTypes.object.isRequired
 }
 
-export default withFocus(Selectable)
+const styles = {
+  button: {
+    height: '2em',
+    width: '10em',
+    lineHeight: '2em',
+    display: 'inline-block',
+    textAlign: 'center'
+  }
+}
+
+export default withFocus(injectSheet(styles)(Selectable))
