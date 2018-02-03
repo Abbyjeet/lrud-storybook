@@ -39,7 +39,7 @@ storiesOf('Carousel', module)
   .add('vertical', () => <Carousel orientation='vertical' items={num} />)
 
 storiesOf('Keyboard', module)
-  .add('search', () => <Keyboard data={gridData} />)
+  .add('search', () => <Keyboard data={gridData} focusId='keyboard-key-a' />)
 
 storiesOf('Events', module)
   .add('select', () => <Selectable onSelect={action('select')}>Select Me!</Selectable>)

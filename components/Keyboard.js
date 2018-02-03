@@ -65,6 +65,7 @@ class Keyboard extends PureComponent {
               {row.map((key, i) => (
                 <Focusable
                   key={i}
+                  id={`keyboard-key-${key}`}
                   className={`focusable ${classes.key}`}
                   onSelect={this.handleSelect}
                   data={{ key }}
