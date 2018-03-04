@@ -15,8 +15,11 @@ const ListItem = withNavigation(styled.li`
   }
 `)
 
-const VerticalList = ({ children }) => (
-  <_VerticalList vertical>
+const VerticalList = ({ children, wrapping }) => (
+  <_VerticalList
+    vertical
+    wrapping={wrapping}
+  >
     {Children.map(children, (child, i) => (
       <ListItem key={i}>
         {child}
@@ -26,7 +29,8 @@ const VerticalList = ({ children }) => (
 )
 
 VerticalList.propTypes = {
-  children: PropTypes.any.isRequired
+  children: PropTypes.any.isRequired,
+  wrapping: PropTypes.bool
 }
 
 export default VerticalList

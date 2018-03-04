@@ -5,6 +5,7 @@ import navigation from './navigation'
 class Focus extends Component {
   componentDidMount () {
     navigation.focus()
+    console.log(navigation.nodes)
   }
 
   render () {

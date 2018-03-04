@@ -17,8 +17,11 @@ const ListItem = withNavigation(styled.li`
   }
 `)
 
-const HorizontalList = ({ children }) => (
-  <_HorizontalList horizontal>
+const HorizontalList = ({ children, wrapping }) => (
+  <_HorizontalList
+    horizontal
+    wrapping={wrapping}
+  >
     {Children.map(children, (child, i) => (
       <ListItem key={i}>
         {child}
@@ -28,7 +31,8 @@ const HorizontalList = ({ children }) => (
 )
 
 HorizontalList.propTypes = {
-  children: PropTypes.any.isRequired
+  children: PropTypes.any.isRequired,
+  wrapping: PropTypes.bool
 }
 
 export default HorizontalList
