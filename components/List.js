@@ -12,7 +12,7 @@ const _List = withNavigation(styled.ul`
 `)
 
 const ListItem = withNavigation(styled.li`
-  ${props => props.horizontal ? 'display: inline-block;' : ''}
+  ${props => props.inline ? 'display: inline-block;' : ''}
 `)
 
 const List = ({ className, style, children, vertical, horizontal, grid, wrapping, onMove }) => (
@@ -28,8 +28,7 @@ const List = ({ className, style, children, vertical, horizontal, grid, wrapping
     {Children.map(children, (child, i) => (
       <ListItem
         key={i}
-        horizontal={horizontal}
-        wrapping={wrapping}
+        inline={!!horizontal}
       >
         {cloneElement(child, { focusableComponent: ListItem })}
       </ListItem>
