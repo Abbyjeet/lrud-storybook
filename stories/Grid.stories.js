@@ -20,13 +20,13 @@ storiesOf('Grid', module)
   .addDecorator(withKnobs)
   .add('default', () => (
     <Focus>
-      <VerticalList grid wrapping={boolean('Wrapping', false)}>
-        <HorizontalList wrapping={boolean('Wrapping', false)}>
+      <VerticalList grid wrapping={boolean('Wrap Vertical', false)}>
+        <HorizontalList wrapping={boolean('Wrap Horizontal', false)}>
           <ListItem>A</ListItem>
           <ListItem>B</ListItem>
           <ListItem>C</ListItem>
         </HorizontalList>
-        <HorizontalList wrapping={boolean('Wrapping', false)}>
+        <HorizontalList wrapping={boolean('Wrap Horizontal', false)}>
           <ListItem>D</ListItem>
           <ListItem>E</ListItem>
           <ListItem>F</ListItem>
