@@ -1,6 +1,6 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { withKnobs, boolean } from '@storybook/addon-knobs/react'
+import { boolean } from '@storybook/addon-knobs/react'
 import styled from 'styled-components'
 import Focus from '../common/Focus'
 import VerticalList from '../components/VerticalList'
@@ -17,7 +17,6 @@ const ListItem = styled.span`
 `
 
 storiesOf('List', module)
-  .addDecorator(withKnobs)
   .add('vertical', () => (
     <Focus>
       <VerticalList wrapping={boolean('Wrapping', false)}>
