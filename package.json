@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
-    "lrud": "^1.4.11",
+    "lrud": "^1.4.13",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-lrud": "^0.0.4",

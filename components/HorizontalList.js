@@ -10,7 +10,7 @@ const _HorizontalList = withNavigation(styled.ul`
 `)
 
 const ListItem = withNavigation(styled.li`
-  float: left;
+  display: inline-block;
 `)
 
 const HorizontalList = ({ children, wrapping }) => (
