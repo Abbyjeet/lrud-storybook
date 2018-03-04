@@ -1,4 +1,4 @@
-import React, { Children } from 'react'
+import React, { Children, cloneElement } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { withNavigation } from 'react-lrud'
@@ -9,11 +9,7 @@ const _VerticalList = withNavigation(styled.ul`
   padding: 0;
 `)
 
-const ListItem = withNavigation(styled.li`
-  &.focused {
-    color: red;
-  }
-`)
+const ListItem = withNavigation(styled.li``)
 
 const VerticalList = ({ children, wrapping }) => (
   <_VerticalList
@@ -22,7 +18,7 @@ const VerticalList = ({ children, wrapping }) => (
   >
     {Children.map(children, (child, i) => (
       <ListItem key={i}>
-        {child}
+        {cloneElement(child, { focusableComponent: ListItem })}
       </ListItem>
     ))}
   </_VerticalList>

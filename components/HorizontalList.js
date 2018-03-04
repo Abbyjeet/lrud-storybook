@@ -1,4 +1,4 @@
-import React, { Children } from 'react'
+import React, { Children, cloneElement } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { withNavigation } from 'react-lrud'
@@ -11,10 +11,6 @@ const _HorizontalList = withNavigation(styled.ul`
 
 const ListItem = withNavigation(styled.li`
   float: left;
-
-  &.focused {
-    color: red;
-  }
 `)
 
 const HorizontalList = ({ children, wrapping }) => (
@@ -24,7 +20,7 @@ const HorizontalList = ({ children, wrapping }) => (
   >
     {Children.map(children, (child, i) => (
       <ListItem key={i}>
-        {child}
+        {cloneElement(child, { focusableComponent: ListItem })}
       </ListItem>
     ))}
   </_HorizontalList>

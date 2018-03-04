@@ -4,8 +4,7 @@ import navigation from './navigation'
 
 class Focus extends Component {
   componentDidMount () {
-    navigation.focus()
-    console.log(navigation.nodes)
+    navigation.focus(this.props.id)
   }
 
   render () {
@@ -14,6 +13,7 @@ class Focus extends Component {
 }
 
 Focus.propTypes = {
+  id: PropTypes.string,
   children: PropTypes.any
 }
 
