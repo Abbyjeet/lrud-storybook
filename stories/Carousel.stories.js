@@ -1,9 +1,8 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { boolean } from '@storybook/addon-knobs/react'
 import styled from 'styled-components'
 import Focus from '../common/Focus'
-import List from '../components/List'
+import Carousel from '../components/Carousel'
 
 const ListItem = styled.span`
   display: inline-block;
@@ -18,28 +17,22 @@ const ListItem = styled.span`
   }
 `
 
-storiesOf('List', module)
+storiesOf('Carousel', module)
   .add('vertical', () => (
     <Focus>
-      <List
-        vertical
-        wrapping={boolean('Wrapping', false)}
-      >
+      <Carousel vertical>
         <ListItem>Foo</ListItem>
         <ListItem>Bar</ListItem>
         <ListItem>Baz</ListItem>
-      </List>
+      </Carousel>
     </Focus>
   ))
   .add('horizontal', () => (
     <Focus>
-      <List
-        horizontal
-        wrapping={boolean('Wrapping', false)}
-      >
+      <Carousel horizontal>
         <ListItem>Foo</ListItem>
         <ListItem>Bar</ListItem>
         <ListItem>Baz</ListItem>
-      </List>
+      </Carousel>
     </Focus>
   ))

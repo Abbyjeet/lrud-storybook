@@ -3,12 +3,14 @@ import { storiesOf } from '@storybook/react'
 import { boolean } from '@storybook/addon-knobs/react'
 import styled from 'styled-components'
 import Focus from '../common/Focus'
-import VerticalList from '../components/VerticalList'
-import HorizontalList from '../components/HorizontalList'
+import List from '../components/List'
 
 const ListItem = styled.span`
   display: inline-block;
-  padding: .5em 1em;
+  height: 5em;
+  width: 5em;
+  line-height: 5em;
+  text-align: center;
 
   ${props => props.focusableComponent}.focused & {
     color: white;
@@ -19,17 +21,27 @@ const ListItem = styled.span`
 storiesOf('Grid', module)
   .add('default', () => (
     <Focus>
-      <VerticalList grid wrapping={boolean('Wrap Vertical', false)}>
-        <HorizontalList wrapping={boolean('Wrap Horizontal', false)}>
+      <List
+        vertical
+        grid
+        wrapping={boolean('Wrap Vertical', false)}
+      >
+        <List
+          horizontal
+          wrapping={boolean('Wrap Horizontal', false)}
+        >
           <ListItem>A</ListItem>
           <ListItem>B</ListItem>
           <ListItem>C</ListItem>
-        </HorizontalList>
-        <HorizontalList wrapping={boolean('Wrap Horizontal', false)}>
+        </List>
+        <List
+          horizontal
+          wrapping={boolean('Wrap Horizontal', false)}
+        >
           <ListItem>D</ListItem>
           <ListItem>E</ListItem>
           <ListItem>F</ListItem>
-        </HorizontalList>
-      </VerticalList>
+        </List>
+      </List>
     </Focus>
   ))
