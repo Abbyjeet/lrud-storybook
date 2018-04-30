@@ -17,7 +17,7 @@ class Carousel extends Component {
     const { position } = this.state
     const target = offset === 1 ? enter : leave
     const el = document.getElementById(target.id)
-    const moveby = orientation === 'horizontal' ? el.offsetWidth : el.offsetHeight
+    const moveby = (orientation === 'horizontal' ? el.offsetWidth : el.offsetHeight) * Math.abs(enter.index - leave.index)
 
     this.setState({
       position: offset === 1 ? position - moveby : position + moveby

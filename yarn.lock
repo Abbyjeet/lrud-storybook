@@ -3903,11 +3903,10 @@ lru-cache@^4.0.1, lru-cache@^4.1.1:
     pseudomap "^1.0.2"
     yallist "^2.1.2"
 
-lrud@^1.4.13:
-  version "1.4.13"
-  resolved "https://registry.yarnpkg.com/lrud/-/lrud-1.4.13.tgz#fe3a3957a1ac0aa979eb496abf1cfacaf593c900"
+lrud@^2.2.1, "lrud@github:stuart-williams/lrud":
+  version "2.2.1"
+  resolved "https://codeload.github.com/stuart-williams/lrud/tar.gz/c8f7c7061f99c83c6a3e2ac3c786c0ad9db38d7b"
   dependencies:
-    object-assign "^4.1.1"
     tiny-emitter "^2.0.2"
 
 macaddress@^0.2.8:
@@ -5087,12 +5086,13 @@ react-inspector@^2.2.2:
     babel-runtime "^6.26.0"
     is-dom "^1.0.9"
 
-react-lrud@^0.0.4:
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/react-lrud/-/react-lrud-0.0.4.tgz#8396861d7a92e584742a6e0ca0a4320e1f78382a"
+react-lrud@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/react-lrud/-/react-lrud-1.2.1.tgz#51e56d02425ab9aa43a28e5354a0b3940d803d4a"
   dependencies:
     airbnb-prop-types "^2.8.1"
     hoist-non-react-statics "^2.5.0"
+    lrud "^2.2.1"
     prop-types "^15.6.1"
     uniqid "^4.1.1"
 

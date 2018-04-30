@@ -29,6 +29,7 @@ const List = ({ className, style, children, vertical, horizontal, grid, wrapping
       <ListItem
         key={i}
         inline={!!horizontal}
+        disabled={child.props.disabled}
       >
         {cloneElement(child, { focusableComponent: ListItem })}
       </ListItem>

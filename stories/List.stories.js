@@ -12,6 +12,8 @@ const ListItem = styled.span`
   line-height: 5em;
   text-align: center;
 
+  background-color: ${props => props.disabled ? 'lightgrey' : ''};
+
   ${props => props.focusableComponent}.focused & {
     color: white;
     background-color: red;
@@ -25,9 +27,9 @@ storiesOf('List', module)
         vertical
         wrapping={boolean('Wrapping', false)}
       >
-        <ListItem>Foo</ListItem>
-        <ListItem>Bar</ListItem>
-        <ListItem>Baz</ListItem>
+        <ListItem>A</ListItem>
+        <ListItem>B</ListItem>
+        <ListItem>C</ListItem>
       </List>
     </Focus>
   ))
@@ -37,9 +39,22 @@ storiesOf('List', module)
         horizontal
         wrapping={boolean('Wrapping', false)}
       >
-        <ListItem>Foo</ListItem>
-        <ListItem>Bar</ListItem>
-        <ListItem>Baz</ListItem>
+        <ListItem>A</ListItem>
+        <ListItem>B</ListItem>
+        <ListItem>C</ListItem>
+      </List>
+    </Focus>
+  ))
+  .add('with disabled items', () => (
+    <Focus>
+      <List horizontal wrapping>
+        <ListItem disabled>A</ListItem>
+        <ListItem>B</ListItem>
+        <ListItem disabled>C</ListItem>
+        <ListItem disabled>D</ListItem>
+        <ListItem>E</ListItem>
+        <ListItem disabled>F</ListItem>
+        <ListItem>G</ListItem>
       </List>
     </Focus>
   ))
